@@ -4,7 +4,7 @@ This repository hosts the R code and documentation files for the course "Getting
 
 Project Summary:
 
-The run_analysis.R script should be run on the data and it will complete the following steps to transform the data into something that we are able to glean information out of:
+The run_analysis.R script should be run on the data and it will complete the following steps to clean and transform the data.
 
     1. Merges the training and the test sets to create one data set.
     2. Extracts only the measurements on the mean and standard deviation for each measurement.
