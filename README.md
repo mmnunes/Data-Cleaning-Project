@@ -22,6 +22,6 @@ Repository files:
 
 Steps to work on this project:
 
-  1. Launch RStudio
-  2. Import the file run_analysis.R 
-  3. Run source ("run_analysis.R"), then it will be downloaded, unzipped the data sources and generated a new files tidydata.txt and tidydatameans.txt in your working directory.
+    1. Launch RStudio
+    2. Import the file run_analysis.R 
+    3. Run source ("run_analysis.R"), then it will be downloaded, unzipped the data sources and generated a new files tidydata.txt and tidydatameans.txt in your working directory.
