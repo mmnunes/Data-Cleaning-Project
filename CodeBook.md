@@ -1,37 +1,26 @@
-Code Book
+Getting and Cleaning Data Course Project CodeBook
 
-This document describes the code inside run_analysis.R.
+This file describes the variables, the data, and any transformations or work that I have performed to clean up the data.
 
-The code is splitted (by comments) in some sections:
+The site where the data was obtained:
 
-Loading and Extract data
-Manipulating data
-Writing data to CSV
+http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+The data for the project:
 
+https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
-Read dataset files from UCI HAR to given name and prefix. Know names are "train" and "test". Known prefixes are "X", "y" and "subject".
+The run_analysis.R script performs the following steps to clean the data:
 
-Examples:
+1)	Read X_train.txt, y_train.txt and subject_train.txt from the "./UCI HAR Dataset/train" folder and store them in trainData, trainLabel and trainSubject variables respectively.
+2)	Read X_test.txt, y_test.txt and subject_test.txt from the "./UCI HAR Dataset/test" folder and store them in testData, testLabel and testSubject variables respectively.
+3)	Concatenate testData to trainData to generate data frame, joinData; concatenate testLabel to trainLabel to generate data frame, joinLabel; concatenate testSubject to trainSubject to generate a data frame, joinSubject.
+4)	Read the features.txt file from the "./ UCI HAR Dataset" folder and store the data in a variable called features. We only extract the measurements on the mean and standard deviation to columnsWithMeanSTD variable. This results in an indices list. We get a subset of joinData with the corresponding columns.
+5)	Clean the column names of the subset. We remove the "()" and "-" symbols in the names, as well as make the first letter of "mean" and "std" a capital letter "M" and "S" respectively.
+6)	Read the activity_labels.txt file from the "./ UCI HAR Dataset" folder and store the data in a variable called activity.
+7)	Clean the activity names in the second column of activity. We first make all names to lower cases. If the name has an underscore between letters, we remove the underscore and capitalize the letter immediately after the underscore.
+8)	Transform the values of joinLabel according to the activity data frame.
+9)	Combine the joinSubject, joinLabel and joinData by column to get a new cleaned 10299x68 data frame, cleanedData. Properly name the first two columns, "subject" and "activity". The "subject" column contains integers that range from 1 to 30 inclusive; the "activity" column contains 6 kinds of activity names; the last 66 columns contain measurements that range from -1 to 1 exclusive.
+10)	Write the cleanedData out to "tidydata.txt" file in current working directory.
+11)	Generate a second independent tidy data set with the average of each measurement for each activity and each subject. We have 30 unique subjects and 6 unique activities, which result in a 180 combinations of the two. Then, for each combination, we calculate the mean of each measurement with the corresponding combination. So, after initializing the result data frame and performing the two for-loops.
+12)	Write the result out to "tidydatameans.txt" file in current working directory.
 
-UCI HAR Dataset/train/X_train.txt
-UCI HAR Dataset/train/y_train.txt
-UCI HAR Dataset/train/subject_train.txt
-
-Loads data, labels and subjects from UCI HAR dataset to a data.frame. The returned data.frame contains a column Activity with labels integer codes, a column Subject with subjects integer codes and all other columns from data.
-
-Constants
-
-
-Reads the activity labels to activityLabels
-Reads the column names of data (a.k.a. features) to features
-Reads the test data.frame to testData
-Reads the trainning data.frame to trainningData
-Manipulating data
-
-Merges test data and trainning data to Data
-Indentifies the mean and std columns (plus Activity and Subject) to columnsWithMeanSTD
-
-Transforms the column Activity into a factor.
-Uses activityLabels to name levels of Activity factor.
-
-Writing final data to CSV
