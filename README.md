@@ -1,21 +1,14 @@
-Cleaning Data Project
+Getting and Cleaning Data Course Project
 
-Instructions: 
+This repository hosts the R code and documentation files for the course "Getting and Cleaning data”.
 
-You should create one R script called run_analysis.R that does the following.
+Files:
 
-1.Merges the training and the test sets to create one data set.
-2.Extracts only the measurements on the mean and standard deviation for each measurement.
-3.Uses descriptive activity names to name the activities in the data set
-4.Appropriately labels the data set with descriptive activity names.
-5.Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+CodeBook.md describes the how to use all this, variables, the data, and any transformations or work that was performed to clean up the data.
+run_analysis.R contains all the code to perform the analyses described in the 5 steps. It can be launched in RStudio by just importing the file.
+The outputs of the 5th step is called tidydata.txt and tidydatameans.txt.
 
-Steps to work on this course project:
-
-Download the data source and put into a folder on your local drive. You'll have a UCI HAR Dataset folder.
-Put run_analysis.R in the parent folder of UCI HAR Dataset, then set it as your working directory using setwd() function in RStudio.
-Run source("run_analysis.R"), then it will generate a new file tinydata.txt in your working directory.
-
-Notes:
-
-run_analysis.R file will install the dependencies (eshape2 and data.table) automatically.
+Steps to work on this project:
+  o	Launch RStudio
+  o	Import the file run_analysis.R 
+  o	Run source ("run_analysis.R"), then it will be downloaded, unzipped the data sources and generated a new files tidydata.txt and tidydatameans.txt in your working directory.
