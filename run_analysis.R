@@ -66,7 +66,7 @@ names(joinLabel) <- "activity"
 ## 4. Appropriately labels the data set with descriptive activity names.
 names(joinSubject) <- "subject"
 cleanedData <- cbind(joinSubject, joinLabel, joinData)
-write.table(cleanedData, "tidydata.txt",row.names=FALSE,quote = FALSE, sep = '\t') 
+write.table(cleanedData, "tidydata.txt") 
 
 
 ## 5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
@@ -93,4 +93,4 @@ for(i in 1:subjectLength) {
 }
 head(result)
 
-write.table(result, "tidydatameans.txt",row.names=FALSE,quote = FALSE, sep = '\t') 
+write.table(result, "tidydatameans.txt",row.name=FALSE,quote = FALSE, sep = '\t') 
